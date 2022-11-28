@@ -6,7 +6,7 @@
 /*   By: samantha <samantha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 16:08:52 by sam               #+#    #+#             */
-/*   Updated: 2022/11/28 20:52:58 by samantha         ###   ########.fr       */
+/*   Updated: 2022/11/28 21:20:53 by samantha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,8 @@ std::string ClapTrap::get_name(void) const
 
 void ClapTrap::attack(const std::string &target)
 {
+	if (!check_energy_points())
+		return;
 	this->_energy_points -= 1;
 	std::cout << "ClapTrap " << this->_name << " attacks " << target << ", causing "
 			  << this->_attack_damage << " points of damage!" << std::endl;
@@ -107,7 +109,20 @@ void ClapTrap::takeDamage(unsigned int amount)
 // il regagne <amount> (nombre de points de soin)
 void ClapTrap::beRepaired(unsigned int amount)
 {
+	if (!check_energy_points())
+		return;
 	this->_energy_points -= 1;
 	this->_hit_points += amount;
 	std::cout << "ClapTrap " << this->_name << " gains " << amount << " hits points." << std::endl;
+}
+
+int ClapTrap::check_energy_points(void)
+{
+	if (this->_energy_points > 0)
+		return 1;
+	else
+	{
+		std::cout << BRED << this->_name << " has no more energy points." << RES << std::endl;
+		return 0;
+	}
 }

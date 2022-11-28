@@ -6,7 +6,7 @@
 /*   By: samantha <samantha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 16:09:06 by sam               #+#    #+#             */
-/*   Updated: 2022/11/28 20:53:11 by samantha         ###   ########.fr       */
+/*   Updated: 2022/11/28 21:15:19 by samantha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ class ClapTrap
 		unsigned int _hit_points;
 		unsigned int _energy_points;
 		unsigned int _attack_damage;
+		
+		int check_energy_points(void);
 };
 
 #endif
