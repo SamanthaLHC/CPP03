@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: samantha <samantha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 16:09:06 by sam               #+#    #+#             */
-/*   Updated: 2022/11/25 18:27:27 by sam              ###   ########.fr       */
+/*   Updated: 2022/11/28 20:53:11 by samantha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class ClapTrap
 {
 	public:
 
-		ClapTrap::ClapTrap(void);
+		ClapTrap(void);
 		ClapTrap(std::string name);
 		ClapTrap(ClapTrap const &cpy);
 		ClapTrap &operator=( ClapTrap const &rhs);
@@ -31,12 +31,23 @@ class ClapTrap
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
 
+		std::string get_name(void) const;
+
+		unsigned int get_hit_points(void) const;
+		// unsigned int set_hit_points(unsigned int);
+
+		unsigned int get_energy_points(void) const;
+		// unsigned int set_energy_points(unsigned int);
+
+		unsigned int get_attack_damage(void) const;
+		// unsigned int set_attack_damage(unsigned int);
+
 	private:
 
-		int _hit_points;
-		int _energy_points;
-		int _attack_dammage;
 		std::string _name;
+		unsigned int _hit_points;
+		unsigned int _energy_points;
+		unsigned int _attack_damage;
 };
 
 #endif

@@ -3,37 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: samantha <samantha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 16:08:52 by sam               #+#    #+#             */
-/*   Updated: 2022/11/25 18:34:36 by sam              ###   ########.fr       */
+/*   Updated: 2022/11/28 20:52:58 by samantha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include "colors.h"
 
-//constructs ans destruct======================================================
+// constructs ans destruct======================================================
 //=============================================================================
 
-ClapTrap::ClapTrap(void) : _name(""), _hit_points(10), _energy_points(10), _attack_dammage(0)
+ClapTrap::ClapTrap(void) : _name(""), _hit_points(10), _energy_points(10), _attack_damage(0)
 {
 	std::cout << BWHT << "Default constructor called." << RES << std::endl;
 	return;
 }
 
-ClapTrap::ClapTrap(std::string name) : _name(name), _hit_points(10), _energy_points(10), _attack_dammage(0)
+ClapTrap::ClapTrap(std::string name) : _name(name), _hit_points(10), _energy_points(10), _attack_damage(0)
 {
-	std::cout << BWHT << " Name in param constructor called." << RES << std::endl;
+	std::cout << BWHT << this->_name << " Name in param constructor called." << RES << std::endl;
 	return;
 }
 
-ClapTrap::ClapTrap(ClapTrap const& cpy)
+ClapTrap::ClapTrap(ClapTrap const &cpy)
 {
 	std::cout << BWHT << "Copy constructor called." << RES << std::endl;
 	*this = cpy;
 }
-
 
 ClapTrap::~ClapTrap(void)
 {
@@ -44,9 +43,9 @@ ClapTrap::~ClapTrap(void)
 // operator overload===========================================================
 //=============================================================================
 
-ClapTrap& ClapTrap::operator=( ClapTrap const& rhs)
+ClapTrap &ClapTrap::operator=(ClapTrap const &rhs)
 {
-	this->_attack_dammage = rhs._attack_dammage;
+	this->_attack_damage = rhs._attack_damage;
 	this->_energy_points = rhs._energy_points;
 	this->_hit_points = rhs._hit_points;
 	this->_name = rhs._name;
@@ -56,27 +55,59 @@ ClapTrap& ClapTrap::operator=( ClapTrap const& rhs)
 // members functions===========================================================
 //=============================================================================
 
-//		get / set ?? (on a besoin d'un getter que si on a besoin d'y acceder
-// depuis l'extérieur de la classe (dans le main pou un autre objet qui n'est pas
-// de  la mm classe) )
+unsigned int ClapTrap::get_hit_points(void) const
+{
+	return this->_hit_points;
+}
 
-// int _hit_points
+// unsigned int ClapTrap::set_hit_points(unsigned int)
+// {
 
-// int _energy_points
+// }
 
-// int _attack_dammage
+unsigned int ClapTrap::get_energy_points(void) const
+{
+	return this->_energy_points;
+}
+
+// unsigned int ClapTrap::set_energy_points(unsigned int)
+// {
+
+// }
+
+unsigned int ClapTrap::get_attack_damage(void) const
+{
+	return this->_attack_damage;
+}
+
+// unsigned int ClapTrap::set_attack_damage(unsigned int )
+// {
+
+// }
+
+std::string ClapTrap::get_name(void) const
+{
+	return this->_name;
+}
 
 void ClapTrap::attack(const std::string &target)
 {
-
+	this->_energy_points -= 1;
+	std::cout << "ClapTrap " << this->_name << " attacks " << target << ", causing "
+			  << this->_attack_damage << " points of damage!" << std::endl;
 }
 
+// il perd <amount > sur <hit points> (ses points de vie)
 void ClapTrap::takeDamage(unsigned int amount)
 {
-
+	this->_hit_points -= amount;
+	std::cout << "ClapTrap " << this->_name << " takes " << amount << " damages." << std::endl;
 }
 
+// il regagne <amount> (nombre de points de soin)
 void ClapTrap::beRepaired(unsigned int amount)
 {
-	
+	this->_energy_points -= 1;
+	this->_hit_points += amount;
+	std::cout << "ClapTrap " << this->_name << " gains " << amount << " hits points." << std::endl;
 }
