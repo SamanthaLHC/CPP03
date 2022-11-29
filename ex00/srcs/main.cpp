@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: samantha <samantha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 16:08:57 by sam               #+#    #+#             */
-/*   Updated: 2022/11/28 22:03:38 by samantha         ###   ########.fr       */
+/*   Updated: 2022/11/29 11:37:18 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,10 @@ int main()
 			chara_target.attack(character_one.get_name());
 			character_one.takeDamage(chara_target.get_attack_damage());
 			character_one.beRepaired(repair_points);
-			std::cout << character_one.get_hit_points() << std::endl;
 		}
+		// chara_target.attack(character_one.get_name());
+		// character_one.takeDamage(chara_target.get_attack_damage());
+		std::cout << character_one.get_hit_points() << std::endl;
 		character_one.beRepaired(repair_points);
 	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: samantha <samantha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 16:08:52 by sam               #+#    #+#             */
-/*   Updated: 2022/11/28 21:45:50 by samantha         ###   ########.fr       */
+/*   Updated: 2022/11/29 11:37:13 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,14 +94,15 @@ void ClapTrap::attack(const std::string &target)
 			  << this->_attack_damage << " points of damage!" << std::endl;
 }
 
-// il perd <amount > sur <hit points> (ses points de vie)
 void ClapTrap::takeDamage(unsigned int amount)
 {
-	this->_hit_points -= amount;
+	if (amount > this->_hit_points)
+		this->_hit_points = 0;
+	else
+		this->_hit_points -= amount;
 	std::cout << "ClapTrap " << this->_name << " takes " << amount << " damages." << std::endl;
 }
 
-// il regagne <amount> (nombre de points de soin)
 void ClapTrap::beRepaired(unsigned int amount)
 {
 	if (!check_energy_points() || !check_hit_points())
