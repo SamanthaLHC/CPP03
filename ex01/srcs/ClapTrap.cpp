@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/29 18:19:28 by sle-huec          #+#    #+#             */
-/*   Updated: 2022/11/29 18:19:33 by sle-huec         ###   ########.fr       */
+/*   Created: 2022/11/29 18:20:18 by sle-huec          #+#    #+#             */
+/*   Updated: 2022/11/29 18:29:38 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 // constructs ans destruct======================================================
 //=============================================================================
 
-ClapTrap::ClapTrap(void) : _name(""), _hit_points(10), _energy_points(10), _attack_damage(0)
+ClapTrap::ClapTrap(void) : _name(""), _hit_points(100), _energy_points(50), _attack_damage(20)
 {
 	std::cout << BWHT << "ClapTrap default constructor called." << RES << std::endl;
 	return;
 }
 
-ClapTrap::ClapTrap(std::string name) : _name(name), _hit_points(10), _energy_points(10), _attack_damage(0)
+ClapTrap::ClapTrap(std::string name) : _name(name), _hit_points(100), _energy_points(50), _attack_damage(20)
 {
 	std::cout << BWHT << this->_name << "ClapTrap name in param constructor called." << RES << std::endl;
 	return;
