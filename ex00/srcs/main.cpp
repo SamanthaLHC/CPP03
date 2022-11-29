@@ -6,18 +6,12 @@
 /*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 16:08:57 by sam               #+#    #+#             */
-/*   Updated: 2022/11/29 11:37:18 by sle-huec         ###   ########.fr       */
+/*   Updated: 2022/11/29 11:38:28 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include "colors.h"
-
-// gérer le nombre max de hit points et la perte de tous les energy points
-
-// points de vie de ClapTrap à zéro
-
-// points d'énergie à zéro ?
 
 int main()
 {

@@ -6,7 +6,7 @@
 /*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 16:08:52 by sam               #+#    #+#             */
-/*   Updated: 2022/11/29 11:37:13 by sle-huec         ###   ########.fr       */
+/*   Updated: 2022/11/29 11:40:03 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,25 +18,25 @@
 
 ClapTrap::ClapTrap(void) : _name(""), _hit_points(10), _energy_points(10), _attack_damage(0)
 {
-	std::cout << BWHT << "Default constructor called." << RES << std::endl;
+	std::cout << BWHT << "ClapTrap default constructor called." << RES << std::endl;
 	return;
 }
 
 ClapTrap::ClapTrap(std::string name) : _name(name), _hit_points(10), _energy_points(10), _attack_damage(0)
 {
-	std::cout << BWHT << this->_name << " Name in param constructor called." << RES << std::endl;
+	std::cout << BWHT << this->_name << "ClapTrap name in param constructor called." << RES << std::endl;
 	return;
 }
 
 ClapTrap::ClapTrap(ClapTrap const &cpy)
 {
-	std::cout << BWHT << "Copy constructor called." << RES << std::endl;
+	std::cout << BWHT << "ClapTrap copy constructor called." << RES << std::endl;
 	*this = cpy;
 }
 
 ClapTrap::~ClapTrap(void)
 {
-	std::cout << BWHT << "Destructor called" << RES << std::endl;
+	std::cout << BWHT << "ClapTrap destructor called" << RES << std::endl;
 	return;
 }
 
@@ -118,7 +118,7 @@ int ClapTrap::check_energy_points(void)
 		return 1;
 	else
 	{
-		std::cout << BRED << this->_name << " has no more energy points." << RES << std::endl;
+		std::cout << BRED << this->_name << " ClapTrap has no more energy points." << RES << std::endl;
 		return 0;
 	}
 }
@@ -129,7 +129,7 @@ int ClapTrap::check_hit_points(void)
 		return 1;
 	else
 	{
-		std::cout << BRED << this->_name << " has no more hit points." << RES << std::endl;
+		std::cout << BRED << this->_name << " ClapTrap has no more hit points." << RES << std::endl;
 		return 0;
 	}
 }
