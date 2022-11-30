@@ -6,7 +6,7 @@
 #    By: sam <sam@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/25 16:06:50 by sam               #+#    #+#              #
-#    Updated: 2022/11/25 16:07:53 by sam              ###   ########.fr        #
+#    Updated: 2022/11/30 16:25:12 by sam              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,9 +51,9 @@ re: fclean
 grind: ${NAME}
 		valgrind ./$(NAME)
 
-bin: re $(NAME)
+run: re $(NAME)
 	./$(NAME)
 
-.PHONY: clean fclean re grind bin
+.PHONY: clean fclean re grind run
 
 -include ${DEPS}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 18:19:55 by sle-huec          #+#    #+#             */
-/*   Updated: 2022/11/29 18:19:59 by sle-huec         ###   ########.fr       */
+/*   Updated: 2022/11/30 16:31:27 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ class ClapTrap
 		unsigned int get_attack_damage(void) const;
 		unsigned int set_attack_damage(unsigned int);
 
-	private:
+	protected:
 
 		std::string _name;
 		unsigned int _hit_points;
