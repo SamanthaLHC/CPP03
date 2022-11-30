@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/29 18:19:28 by sle-huec          #+#    #+#             */
-/*   Updated: 2022/11/30 20:25:11 by sam              ###   ########.fr       */
+/*   Created: 2022/11/29 18:20:18 by sle-huec          #+#    #+#             */
+/*   Updated: 2022/11/30 18:11:55 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,27 +16,27 @@
 // constructs ans destruct======================================================
 //=============================================================================
 
-ClapTrap::ClapTrap(void) : _name(""), _hit_points(10), _energy_points(10), _attack_damage(0)
+ClapTrap::ClapTrap(void) : _name(""), _hit_points(100), _energy_points(50), _attack_damage(20)
 {
-	std::cout << BWHT << "ClapTrap default constructor called." << RES << std::endl;
+	std::cout << BWHT << " ClapTrap default constructor called." << RES << std::endl;
 	return;
 }
 
-ClapTrap::ClapTrap(std::string name) : _name(name), _hit_points(10), _energy_points(10), _attack_damage(0)
+ClapTrap::ClapTrap(std::string name) : _name(name), _hit_points(100), _energy_points(50), _attack_damage(20)
 {
-	std::cout << BWHT << this->_name << "ClapTrap name in param constructor called." << RES << std::endl;
+	std::cout << BWHT << this->_name << " ClapTrap name in param constructor called." << RES << std::endl;
 	return;
 }
 
 ClapTrap::ClapTrap(ClapTrap const &cpy)
 {
-	std::cout << BWHT << "ClapTrap copy constructor called." << RES << std::endl;
+	std::cout << BWHT << " ClapTrap copy constructor called." << RES << std::endl;
 	*this = cpy;
 }
 
 ClapTrap::~ClapTrap(void)
 {
-	std::cout << BWHT << "ClapTrap destructor called" << RES << std::endl;
+	std::cout << BWHT << this->_name << " ClapTrap destructor called" << RES << std::endl;
 	return;
 }
 
@@ -90,8 +90,8 @@ void ClapTrap::attack(const std::string &target)
 	if (!check_energy_points() || !check_hit_points())
 		return;
 	this->_energy_points -= 1;
-	std::cout << "ClapTrap " << this->_name << " attacks " << target << ", causing "
-			  << this->_attack_damage << " points of damage!" << std::endl;
+	std::cout << BYEL << "ClapTrap " << this->_name << " attacks " << target << ", causing "
+			  << this->_attack_damage << " points of damage!" << RES << std::endl;
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
@@ -100,7 +100,8 @@ void ClapTrap::takeDamage(unsigned int amount)
 		this->_hit_points = 0;
 	else
 		this->_hit_points -= amount;
-	std::cout << "ClapTrap " << this->_name << " takes " << amount << " damages." << std::endl;
+	std::cout << BYEL << "ClapTrap " << this->_name << " takes " << amount << " damages."
+			  << RES << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
@@ -109,7 +110,8 @@ void ClapTrap::beRepaired(unsigned int amount)
 		return;
 	this->_energy_points -= 1;
 	this->_hit_points += amount;
-	std::cout << "ClapTrap " << this->_name << " gains " << amount << " hits points." << std::endl;
+	std::cout << BYEL << "ClapTrap " << this->_name << " gains " << amount << " hits points."
+			  << RES << std::endl;
 }
 
 int ClapTrap::check_energy_points(void)
@@ -118,7 +120,7 @@ int ClapTrap::check_energy_points(void)
 		return 1;
 	else
 	{
-		std::cout << BRED << this->_name << " ClapTrap has no more energy points." << RES << std::endl;
+		std::cout << BRED << this->_name << " has no more energy points." << RES << std::endl;
 		return 0;
 	}
 }
@@ -129,9 +131,7 @@ int ClapTrap::check_hit_points(void)
 		return 1;
 	else
 	{
-		std::cout << BRED << this->_name << " ClapTrap has no more hit points." << RES << std::endl;
+		std::cout << BRED << this->_name << " has no more hit points." << RES << std::endl;
 		return 0;
 	}
 }
-
-

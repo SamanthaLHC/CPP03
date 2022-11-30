@@ -6,11 +6,11 @@
 /*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 18:24:56 by sle-huec          #+#    #+#             */
-/*   Updated: 2022/11/30 20:39:00 by sam              ###   ########.fr       */
+/*   Updated: 2022/11/30 21:00:19 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 #include "colors.h"
 
@@ -84,8 +84,6 @@ int ScavTrap::check_hit_points(void)
 		return 0;
 	}
 }
-
-
 void ScavTrap::attack(const std::string &target)
 {
 	if (!check_energy_points() || !check_hit_points())
