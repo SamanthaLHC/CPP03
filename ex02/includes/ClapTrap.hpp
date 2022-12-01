@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 18:19:55 by sle-huec          #+#    #+#             */
-/*   Updated: 2022/11/30 16:31:27 by sam              ###   ########.fr       */
+/*   Updated: 2022/12/01 13:57:26 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ class ClapTrap
 		unsigned int get_energy_points(void) const;
 
 		unsigned int get_attack_damage(void) const;
-		unsigned int set_attack_damage(unsigned int);
+		// unsigned int set_attack_damage(unsigned int);
 
 	protected:
 

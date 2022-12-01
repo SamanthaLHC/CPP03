@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 18:20:18 by sle-huec          #+#    #+#             */
-/*   Updated: 2022/11/30 18:11:55 by sam              ###   ########.fr       */
+/*   Updated: 2022/12/01 15:52:17 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 ClapTrap::ClapTrap(void) : _name(""), _hit_points(100), _energy_points(50), _attack_damage(20)
 {
-	std::cout << BWHT << " ClapTrap default constructor called." << RES << std::endl;
+	std::cout << BWHT << this->_name << " ClapTrap default constructor called." << RES << std::endl;
 	return;
 }
 
@@ -30,7 +30,7 @@ ClapTrap::ClapTrap(std::string name) : _name(name), _hit_points(100), _energy_po
 
 ClapTrap::ClapTrap(ClapTrap const &cpy)
 {
-	std::cout << BWHT << " ClapTrap copy constructor called." << RES << std::endl;
+	std::cout << BWHT << this->_name << " ClapTrap copy constructor called." << RES << std::endl;
 	*this = cpy;
 }
 
@@ -60,11 +60,6 @@ unsigned int ClapTrap::get_hit_points(void) const
 	return this->_hit_points;
 }
 
-// unsigned int ClapTrap::set_hit_points(unsigned int)
-// {
-
-// }
-
 unsigned int ClapTrap::get_energy_points(void) const
 {
 	return this->_energy_points;
@@ -75,10 +70,10 @@ unsigned int ClapTrap::get_attack_damage(void) const
 	return this->_attack_damage;
 }
 
-unsigned int ClapTrap::set_attack_damage(unsigned int damage_points)
-{
-	return this->_attack_damage = damage_points;
-}
+// unsigned int ClapTrap::set_attack_damage(unsigned int damage_points)
+// {
+// 	return this->_attack_damage = damage_points;
+// }
 
 std::string ClapTrap::get_name(void) const
 {
@@ -90,7 +85,7 @@ void ClapTrap::attack(const std::string &target)
 	if (!check_energy_points() || !check_hit_points())
 		return;
 	this->_energy_points -= 1;
-	std::cout << BYEL << "ClapTrap " << this->_name << " attacks " << target << ", causing "
+	std::cout << BMAG << "ClapTrap " << this->_name << " attacks " << target << ", causing "
 			  << this->_attack_damage << " points of damage!" << RES << std::endl;
 }
 
@@ -100,7 +95,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 		this->_hit_points = 0;
 	else
 		this->_hit_points -= amount;
-	std::cout << BYEL << "ClapTrap " << this->_name << " takes " << amount << " damages."
+	std::cout << BMAG << "ClapTrap " << this->_name << " takes " << amount << " damages."
 			  << RES << std::endl;
 }
 
@@ -110,7 +105,7 @@ void ClapTrap::beRepaired(unsigned int amount)
 		return;
 	this->_energy_points -= 1;
 	this->_hit_points += amount;
-	std::cout << BYEL << "ClapTrap " << this->_name << " gains " << amount << " hits points."
+	std::cout << BMAG << "ClapTrap " << this->_name << " gains " << amount << " hits points."
 			  << RES << std::endl;
 }
 
